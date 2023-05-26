@@ -1,0 +1,245 @@
+/(a) x: 10.
+(b) y: 20.
+(c) (&x): O endereço de x é 1000.
+(d) (&y): O endereço de y é 1004.
+(e) *p1: O valor de p1 é 1001.
+(f) *p2: O valor de p2 é 1004.
+(g) *p1 + *p2: 10 + 20 =  30.
+(h) *(&x): 10.
+(i) *p2: 1004./
+
+#include <stdio.h>
+
+
+int main() {
+    int inteiro = 10;
+    float real = 3.14;
+    char caractere = 'A';
+
+    int* ponteiroInteiro = &inteiro;
+    float* ponteiroReal = &real;
+    char* ponteiroChar = &caractere;
+
+    printf("Valores originais:\n");
+    printf("Inteiro: %d\n", inteiro);
+    printf("Real: %.2f\n", real);
+    printf("Caractere: %c\n", caractere);
+
+   
+    *ponteiroInteiro = 50;
+    *ponteiroReal = 1.30;
+    *ponteiroChar = 'C';
+
+    printf("\nValores modificados:\n");
+    printf("Inteiro: %d\n", inteiro);
+    printf("Real: %.2f\n", real);
+    printf("Caractere: %c\n", caractere);
+
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+    int var1, var2;
+    int* endereco1;
+    int* endereco2;
+
+    printf("Digite o valor 1: ");
+    scanf("%d", &var1);
+    printf("Digite o valor 2: ");
+    scanf("%d", &var2);
+
+    endereco1 = &var1;
+    endereco2 = &var2;
+
+    printf("\nEndereco 1: %p\n", endereco1);
+    printf("Endereco 2: %p\n", endereco2);
+
+    if (endereco1 > endereco2) {
+        printf("Maior endereco: %p\n", endereco1);
+    } else if (endereco2 > endereco1) {
+        printf("Maior endereco: %p\n", endereco2);
+    } else {
+        printf("Os enderecos são iguais.\n");
+    }
+
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+    int var1, var2;
+    int* endereco1;
+    int* endereco2;
+
+    // Lê os valores das variáveis do teclado
+    printf("Digite o valor 1: ");
+    scanf("%d", &var1);
+
+    printf("Digite o valor 2: ");
+    scanf("%d", &var2);
+
+    // Obtém os endereços das variáveis
+    endereco1 = &var1;
+    endereco2 = &var2;
+
+    // Compara os endereços e exibe o conteúdo do maior endereço
+    if (endereco1 > endereco2) {
+        printf("conteudo maior endereco: %d\n", *endereco1);
+    } else {
+        printf("conteudo maior endereco: %d\n", *endereco2);
+    }
+
+    return 0;
+}
+
+#include <stdio.h>
+
+void dobrar(int *ptr) {
+    *ptr = 2 * (*ptr);
+}
+
+int main() {
+    int A, B;
+    int *ptrA, *ptrB;
+
+    printf("Digite o valor de A: ");
+    scanf("%d", &A);
+
+    printf("Digite o valor de B: ");
+    scanf("%d", &B);
+
+    ptrA = &A;
+    ptrB = &B;
+
+    dobrar(ptrA);
+    dobrar(ptrB);
+
+    int resultado = *ptrA + *ptrB;
+    printf("soma do dobro de A e B é: %d\n", resultado);
+
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+    int num1, num2;
+    int *ptr1, *ptr2;
+
+    ptr1 = &num1;
+    ptr2 = &num2;
+
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
+
+    printf("Digite o segundo número: ");
+    scanf("%d", &num2);
+
+    printf("Os números digitados foram: %d e %d\n", *ptr1, *ptr2);
+
+    int soma = *ptr1 + *ptr2;
+    printf("A soma dos números eh: %d\n", soma);
+
+    int subtracao = *ptr1 - *ptr2;
+    printf("A subtração eh: %d\n", subtracao);
+
+    int multiplicacao = *ptr1 * *ptr2;
+    printf("A multiplicação eh: %d\n", multiplicacao);
+
+    int divisao = *ptr1 / *ptr2;
+    printf("A divisão eh: %d\n", divisao);
+
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+    int num1, num2, num3;
+    int *ptr1, *ptr2, *ptr3;
+
+    ptr1 = &num1;
+    ptr2 = &num2;
+    ptr3 = &num3;
+
+    printf(" primeiro número");
+    scanf("%d", &num1);
+
+    printf("segundo número");
+    scanf("%d", &num2);
+
+    printf("terceiro número");
+    scanf("%d", &num3);
+
+    printf("números digitados: %d, %d e %d\n", *ptr1, *ptr2, *ptr3);
+
+  
+    if (*ptr1 > *ptr2) {
+        int temp = *ptr1;
+        *ptr1 = *ptr2;
+        *ptr2 = temp;
+    }
+
+    if (*ptr2 > *ptr3) {
+        int temp = *ptr2;
+        *ptr2 = *ptr3;
+        *ptr3 = temp;
+    }
+
+    if (*ptr1 > *ptr2) {
+        int temp = *ptr1;
+        *ptr1 = *ptr2;
+        *ptr2 = temp;
+    }
+
+    printf("ordem crescente eh %d, %d e %d\n", *ptr1, *ptr2, *ptr3);
+
+    printf("endereço de memória\n");
+    printf("Número 1: %p\n", (void *)&num1);
+    printf("Número 2: %p\n", (void *)&num2);
+    printf("Número 3: %p\n", (void *)&num3);
+
+    return 0;
+}
+
+#include <stdio.h>
+
+int main() {
+    int numeros[6];
+    int *ponteiro;
+
+    printf(seis números:\n");
+    for (int i = 0; i < 6; i++) {
+        scanf("%d", &numeros[i]);
+    }
+
+    printf("valores do vetor eh\n");
+    ponteiro = numeros;
+    for (int i = 0; i < 6; i++) {
+        printf("Valor eh %d, Endereço eh %p\n", *(ponteiro + i), (ponteiro + i));
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
